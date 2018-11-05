@@ -5,9 +5,7 @@ import com.isea533.mybatis.model.Country;
 import com.isea533.mybatis.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -50,14 +48,15 @@ public class CountryController {
     }
 
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    public ModelAndView save(Country country) {
+    public @ResponseBody
+    Country save(@RequestBody  Country country) {
         ModelAndView result = new ModelAndView(redirect_list);
         if (country.getId() != null) {
             countryService.updateAll(country);
         } else {
             countryService.save(country);
         }
-        return result;
+        return country;
     }
 
     @RequestMapping("delete")
