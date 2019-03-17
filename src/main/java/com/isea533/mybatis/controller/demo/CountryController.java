@@ -26,7 +26,7 @@ public class CountryController {
 
     private String redirect_list = "redirect:list";
 
-    @RequestMapping(value = {"list", "index", "index.html", ""})
+    @RequestMapping(value = {"list", "index", "index.html"})
     public ModelAndView getList(Country country,
                                 @RequestParam(required = false, defaultValue = "1") int page,
                                 @RequestParam(required = false, defaultValue = "10") int rows) {
@@ -66,4 +66,38 @@ public class CountryController {
         return redirect_list;
     }
 
+
+    @RequestMapping("save")
+    public String save() {
+        Country country = new Country();
+        country.setCountrycode("123123");
+        country.setCountryname("haha");
+        country.setId(11111);
+        countryService.save(country, "mysql");
+        return redirect_list;
+    }
+
+
+    @RequestMapping("find")
+    public void find() {
+        Country country = new Country();
+//        country.setCountrycode("123123");
+        country.setCountryname("Sudan");
+//        country.setId(11111);
+        countryService.findByEntity(country);
+//        return redirect_list;
+    }
+
+    @RequestMapping("/update")
+    public void update() {
+        Country country = new Country();
+        country.setId(12);
+        country.setCountryname("china");
+        System.out.println(this.countryService.updateByEntity(country));
+    }
+
+    @RequestMapping("test")
+    public void test() {
+        this.countryService.testTransactional();
+    }
 }

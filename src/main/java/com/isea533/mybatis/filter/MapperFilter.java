@@ -23,7 +23,7 @@ public class MapperFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        List<Country> countries = countryMapper.selectAll();
+//        List<Country> countries = countryMapper.selectAll();
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

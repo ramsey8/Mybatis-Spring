@@ -85,8 +85,13 @@
                         </value>
                     </property>
                 </bean>
+                <bean class="com.isea533.mybatis.interceptor.MybatisSqlInterceptor"/>
             </array>
         </property>
+        <property name="cache">
+            <ref bean="redisCache"/>
+        </property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">

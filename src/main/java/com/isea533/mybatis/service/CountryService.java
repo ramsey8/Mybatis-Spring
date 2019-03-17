@@ -20,4 +20,11 @@ public interface CountryService extends IService<Country> {
      */
     List<Country> selectByCountry(Country country, int page, int rows);
 
+    int save(Country country, String dbType);
+
+    List<Country> findByEntity(Country country);
+
+    int updateByEntity(Country country);
+
+    void testTransactional();
 }

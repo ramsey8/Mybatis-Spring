@@ -4,9 +4,11 @@ import com.isea533.mybatis.mapper.ApplicationPropertiesMapper;
 import com.isea533.mybatis.model.ApplicationProperties;
 import com.isea533.mybatis.service.ApplicationPropertiesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class ApplicationPropertiesServiceImpl implements ApplicationPropertiesService {
 
     @Autowired
