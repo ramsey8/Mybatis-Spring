@@ -4,9 +4,9 @@ import org.apache.ibatis.reflection.TypeParameterResolver;
 
 public class TypeResolverTest {
 
-    public static void main(String[] args) {
-        TypeParameterResolver.resolveParamTypes()
-    }
+//    public static void main(String[] args) {
+//        TypeParameterResolver.resolveParamTypes()
+//    }
 
 
 

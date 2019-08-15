@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ValueController {
 
-    @Value("${name}")
+//    @Value("${name}")
     private String name;
 
     @RequestMapping("/query/name")

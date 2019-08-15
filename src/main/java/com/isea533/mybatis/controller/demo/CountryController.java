@@ -1,10 +1,15 @@
 package com.isea533.mybatis.controller.demo;
 
 import com.github.pagehelper.PageInfo;
+import com.isea533.mybatis.mapper.UserInfoMapper;
 import com.isea533.mybatis.model.Country;
+import com.isea533.mybatis.model.UserInfo;
 import com.isea533.mybatis.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,9 +23,17 @@ import java.util.List;
  */
 @Controller
 public class CountryController {
+    @Value("${name}")
+    private String name;
 
     @Autowired
     private CountryService countryService;
+
+    @Autowired
+    private UserInfoMapper userInfoMapper;
+
+    @Autowired
+    private ConfigurableEnvironment environment;
 
     private String page_list = "index";
 
@@ -99,5 +112,18 @@ public class CountryController {
     @RequestMapping("test")
     public void test() {
         this.countryService.testTransactional();
+    }
+
+    @RequestMapping("/user/{id:.+}")
+    public void findByPrimaryKey(@PathVariable("id") String id) {
+//        System.out.println(environment.getProperty("name"));
+        UserInfo userInfo = userInfoMapper.findByPrimaryKey(id);
+        System.out.println("email ==>" + userInfo.getEmail());
+
+        Country country = userInfo.getCountry();
+        System.out.println("国籍 ==== " + country.getCountryname());
+
+//        Country country = userInfo.getCountry();
+//        System.out.println("country ==>" + country.toString());
     }
 }

@@ -14,8 +14,14 @@ public class ApplicationPropertiesServiceImpl implements ApplicationPropertiesSe
     @Autowired
     private ApplicationPropertiesMapper mapper;
 
+    @Override
     public String getValue(String key) {
         return mapper.getValue(key);
+    }
+
+    @Override
+    public List<ApplicationProperties> findAll() {
+        return mapper.findAll();
     }
 
     @Override

@@ -5,4 +5,8 @@
   <select id="getValue" resultType="java.lang.String" parameterType="java.lang.String">
     select t.value from application_properties t where t.key = #{value}
   </select>
+
+  <select id="findAll" resultType="ApplicationProperties">
+    select t.id, t.key, t.value, t.version from application_properties t
+  </select>
 </mapper>

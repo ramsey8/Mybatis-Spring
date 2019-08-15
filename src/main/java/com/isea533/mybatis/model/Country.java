@@ -58,6 +58,15 @@ public class Country {
         this.countryname = countryname;
     }
 
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", countryname='" + countryname + '\'' +
+                ", countrycode='" + countrycode + '\'' +
+                '}';
+    }
+
     /**
      * 获取代码
      *

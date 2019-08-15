@@ -70,6 +70,10 @@ public class UserInfo {
      */
     private String tel;
 
+    private Country country;
+
+    private String countryId;
+
     /**
      * @return Id
      */
@@ -84,8 +88,25 @@ public class UserInfo {
         this.id = id;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public String getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
+    }
+
     /**
      * 获取用户名
+
      *
      * @return username - 用户名
      */
@@ -172,6 +193,23 @@ public class UserInfo {
      */
     public void setRealname(String realname) {
         this.realname = realname;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", usertype='" + usertype + '\'' +
+                ", enabled=" + enabled +
+                ", realname='" + realname + '\'' +
+                ", qq='" + qq + '\'' +
+                ", email='" + email + '\'' +
+                ", tel='" + tel + '\'' +
+                ", country=" + country +
+                ", countryId='" + countryId + '\'' +
+                '}';
     }
 
     /**

@@ -38,5 +38,32 @@
     <result column="qq" property="qq" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <association property="country" javaType="Country" fetchType="lazy" column="country_id" select="findCountry">
+    </association>
   </resultMap>
+
+  <resultMap id="countryMap" type="Country">
+    <id column="id" property="id"/>
+    <result column="countryname" property="countryname"/>
+    <result column="countrycode" property="countrycode"/>
+  </resultMap>
+
+  <select id="findByPrimaryKey" resultMap="BaseResultMap">
+    SELECT
+      t.id,
+      t.username,
+      t.PASSWORD,
+      t.usertype,
+      t.qq,
+      t.email,
+      t.country_id
+    FROM
+      user_info t left join country t1 on t.country_id = t1.id
+    WHERE
+      t.id = #{id}
+  </select>
+
+  <select id="findCountry" resultMap="countryMap">
+    select id,countryname, countrycode from country where id = #{id}
+  </select>
 </mapper>

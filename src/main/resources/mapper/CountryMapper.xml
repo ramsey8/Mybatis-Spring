@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.isea533.mybatis.mapper.CountryMapper">
 
-  <cache type="com.isea533.mybatis.cache.RedisCache"/>
   <!--<cache-ref namespace=""-->
   <resultMap id="BaseResultMap" type="com.isea533.mybatis.model.Country">
     <!--

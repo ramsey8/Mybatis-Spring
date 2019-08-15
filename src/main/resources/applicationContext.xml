@@ -37,7 +37,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.isea533.mybatis"/>
+    <context:component-scan base-package="com.isea533"/>
 
     <context:property-placeholder location="classpath:config.properties"/>
 
@@ -87,9 +87,6 @@
                 </bean>
                 <bean class="com.isea533.mybatis.interceptor.MybatisSqlInterceptor"/>
             </array>
-        </property>
-        <property name="cache">
-            <ref bean="redisCache"/>
         </property>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
